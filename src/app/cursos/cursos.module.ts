@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 import { CursosRoutingModule } from './cursos-routing.module';
 import { CursosComponent } from './cursos/cursos.component';
 import { AppMaterialModule } from "../compartilhado/app-material/app-material.module";
+import { MatProgressSpinnerModule } from "@angular/material/progress-spinner";
 
 
 @NgModule({
@@ -13,7 +14,8 @@ import { AppMaterialModule } from "../compartilhado/app-material/app-material.mo
   imports: [
     CommonModule,
     CursosRoutingModule,
-    AppMaterialModule
+    AppMaterialModule,
+    MatProgressSpinnerModule
   ]
 })
 export class CursosModule {

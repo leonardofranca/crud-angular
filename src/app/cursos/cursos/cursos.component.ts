@@ -11,10 +11,10 @@ import { Observable } from "rxjs";
 export class CursosComponent {
   displayedColumns: string[] = ['nome', 'categoria'];
 
-  dataSource: Observable<Curso[]>;
+  cursosObs$: Observable<Curso[]>;
 
   constructor(private cursosService: CursosService) {
-    this.dataSource = this.cursosService.list();
+    this.cursosObs$ = this.cursosService.list();
   }
 
   ngOnInit() {
