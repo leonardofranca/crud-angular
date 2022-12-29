@@ -5,6 +5,7 @@ import { CursosRoutingModule } from './cursos-routing.module';
 import { CursosComponent } from './cursos/cursos.component';
 import { AppMaterialModule } from "../compartilhado/app-material/app-material.module";
 import { CompartilhadoModule } from "../compartilhado/compartilhado.module";
+import { MatIconModule } from "@angular/material/icon";
 
 
 @NgModule({
@@ -15,7 +16,7 @@ import { CompartilhadoModule } from "../compartilhado/compartilhado.module";
     CommonModule,
     CursosRoutingModule,
     AppMaterialModule,
-    CompartilhadoModule
+    CompartilhadoModule,
   ]
 })
 export class CursosModule {
