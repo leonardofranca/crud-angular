@@ -1,7 +1,9 @@
 import { Component } from '@angular/core';
 import { CursosService } from '../services/cursos.service';
 import { Curso } from "../models/curso";
-import { Observable } from "rxjs";
+import { catchError, Observable, of } from "rxjs";
+import { ErrorDialogComponent } from "../../compartilhado/componentes/error-dialog/error-dialog.component";
+import { MatDialog } from "@angular/material/dialog";
 
 @Component({
   selector: 'app-cursos',
@@ -13,8 +15,24 @@ export class CursosComponent {
 
   cursosObs$: Observable<Curso[]>;
 
-  constructor(private cursosService: CursosService) {
-    this.cursosObs$ = this.cursosService.list();
+  constructor(
+    private cursosService: CursosService,
+    public dialog: MatDialog
+  ) {
+    this.cursosObs$ = this.cursosService.list()
+      .pipe(
+        catchError(erro => {
+          this.onError("Erro ao Carregar cursos");
+          return of([]);
+        })
+      );
+  }
+
+  onError(errorMsg: string) {
+    this.dialog.open(ErrorDialogComponent, {
+        data: errorMsg
+      }
+    )
   }
 
   ngOnInit() {
