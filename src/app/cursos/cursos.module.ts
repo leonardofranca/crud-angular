@@ -6,11 +6,13 @@ import { CursosComponent } from './cursos/cursos.component';
 import { AppMaterialModule } from "../compartilhado/app-material/app-material.module";
 import { CompartilhadoModule } from "../compartilhado/compartilhado.module";
 import { MatIconModule } from "@angular/material/icon";
+import { CursoFormComponent } from './curso-form/curso-form.component';
 
 
 @NgModule({
   declarations: [
-    CursosComponent
+    CursosComponent,
+    CursoFormComponent
   ],
   imports: [
     CommonModule,
