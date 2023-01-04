@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FormBuilder, FormGroup } from "@angular/forms";
+import { NonNullableFormBuilder } from "@angular/forms";
 import { CursosService } from "../services/cursos.service";
 import { MatSnackBar } from "@angular/material/snack-bar";
 import { Location } from "@angular/common";
@@ -11,17 +11,16 @@ import { Location } from "@angular/common";
 })
 export class CursoFormComponent {
 
-  form: FormGroup;
+  form = this.formBuilder.group({
+    nome: [''],
+    categoria: ['']
+  })
 
-  constructor(private formBuilder: FormBuilder,
+  constructor(private formBuilder: NonNullableFormBuilder,
               private service: CursosService,
               private snackBar: MatSnackBar,
               private location: Location
   ) {
-    this.form = formBuilder.group({
-      nome: [null],
-      categoria: [null]
-    })
   }
 
   onSubmit() {
