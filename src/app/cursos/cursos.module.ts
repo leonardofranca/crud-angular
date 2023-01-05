@@ -7,12 +7,14 @@ import { AppMaterialModule } from "../compartilhado/app-material/app-material.mo
 import { CompartilhadoModule } from "../compartilhado/compartilhado.module";
 import { CursoFormComponent } from './curso-form/curso-form.component';
 import { ReactiveFormsModule } from "@angular/forms";
+import { CursosListComponent } from './cursos-list/cursos-list.component';
 
 
 @NgModule({
   declarations: [
     CursosComponent,
-    CursoFormComponent
+    CursoFormComponent,
+    CursosListComponent
   ],
   imports: [
     CommonModule,

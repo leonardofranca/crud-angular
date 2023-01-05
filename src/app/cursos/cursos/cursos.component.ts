@@ -12,7 +12,6 @@ import { ActivatedRoute, Router } from "@angular/router";
   styleUrls: ['./cursos.component.scss']
 })
 export class CursosComponent {
-  displayedColumns: string[] = ['nome', 'categoria', 'acoes'];
 
   cursosObs$: Observable<Curso[]>;
 
