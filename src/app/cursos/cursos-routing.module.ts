@@ -5,7 +5,8 @@ import { CursoFormComponent } from "./containers/curso-form/curso-form.component
 
 const routes: Routes = [
   {path: '', component: CursosComponent},
-  {path: 'novo', component: CursoFormComponent}
+  {path: 'novo', component: CursoFormComponent},
+  {path: 'editar/:id', component: CursoFormComponent}
 ];
 
 @NgModule({
