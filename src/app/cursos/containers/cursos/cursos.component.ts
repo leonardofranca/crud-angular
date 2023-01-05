@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
-import { CursosService } from '../services/cursos.service';
-import { Curso } from "../models/curso";
+import { CursosService } from '../../services/cursos.service';
+import { Curso } from "../../models/curso";
 import { catchError, Observable, of } from "rxjs";
-import { ErrorDialogComponent } from "../../compartilhado/componentes/error-dialog/error-dialog.component";
+import { ErrorDialogComponent } from "../../../compartilhado/componentes/error-dialog/error-dialog.component";
 import { MatDialog } from "@angular/material/dialog";
 import { ActivatedRoute, Router } from "@angular/router";
 

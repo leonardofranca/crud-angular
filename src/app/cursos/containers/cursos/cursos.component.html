@@ -8,6 +8,7 @@
       <app-cursos-list
         *ngIf="cursosObs$ | async as cursos; else loading"
         [cursos]="cursos"
+        (add)="onAdd()"
       ></app-cursos-list>
       <ng-template #loading>
         <div class="loading-spinner">
