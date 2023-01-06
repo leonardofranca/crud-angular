@@ -6,6 +6,9 @@ import { ErrorDialogComponent } from "../../../compartilhado/componentes/error-d
 import { MatDialog } from "@angular/material/dialog";
 import { ActivatedRoute, Router } from "@angular/router";
 import { MatSnackBar } from '@angular/material/snack-bar';
+import {
+  ConfirmationDialogComponent
+} from "../../../compartilhado/componentes/confirmation-dialog/confirmation-dialog.component";
 
 @Component({
   selector: 'app-cursos',
@@ -55,21 +58,31 @@ export class CursosComponent {
   }
 
   onDelete(curso: Curso) {
-    this.cursosService.delete(curso._id)
-      .subscribe({
-          next: () => {
-            this.refresh();
-            this.snackBar.open('Curso deletado com sucesso', 'X', {
-              duration: 5000,
-              verticalPosition: "top",
-              horizontalPosition: "center"
-            })
-          },
-          error: () => {
-            this.onError('Erro ao tentar remover curso')
-          }
-        }
-      );
+    const dialogRef = this.dialog.open(ConfirmationDialogComponent, {
+      data: "Tem certeza que deseja deletar esse curso?"
+    });
+
+    dialogRef.afterClosed().subscribe((result: boolean) => {
+      if (result) {
+        this.cursosService.delete(curso._id)
+          .subscribe({
+              next: () => {
+                this.refresh();
+                this.snackBar.open('Curso deletado com sucesso', 'X', {
+                  duration: 5000,
+                  verticalPosition: "top",
+                  horizontalPosition: "center"
+                })
+              },
+              error: () => {
+                this.onError('Erro ao tentar remover curso')
+              }
+            }
+          );
+      }
+    });
+
+
   }
 
   refresh() {
