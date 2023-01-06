@@ -23,7 +23,7 @@ export class CursosComponent {
   ) {
     this.cursosObs$ = this.cursosService.list()
       .pipe(
-        catchError(erro => {
+        catchError(() => {
           this.onError("Erro ao Carregar cursos");
           return of([]);
         })
